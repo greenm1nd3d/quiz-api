@@ -38,7 +38,6 @@ class ProductController extends Controller
         $request->photo->move(public_path('products'), $photo);
 
         $data = [
-            'user_id' => 1,
             'sku' => $request->sku,
             'product' => $request->product,
             'content' => $request->content,

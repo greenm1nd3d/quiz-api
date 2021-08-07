@@ -27,8 +27,8 @@ Route::group(['prefix' => '/v1'], function () {
 
     Route::get('/products', [ProductController::class, 'list']);
     Route::post('/product', [ProductController::class, 'create']);
-    Route::post('/product/update', [ProductController::class, 'update']);
-    Route::post('/product/delete', [ProductController::class, 'delete']);
+    Route::post('/product/{id}/update', [ProductController::class, 'update']);
+    Route::get('/product/{id}/delete', [ProductController::class, 'delete']);
 
     Route::post('/login', [\Laravel\Passport\Http\Controllers\AccessTokenController::class, 'issueToken']);
 });

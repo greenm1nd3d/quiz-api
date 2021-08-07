@@ -15,7 +15,6 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
         'sku',
         'product',
         'content',

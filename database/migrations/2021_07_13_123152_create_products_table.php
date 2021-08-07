@@ -15,8 +15,6 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->char('sku', 10);
             $table->string('product', 100);
             $table->string('content');
