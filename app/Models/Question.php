@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Question extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,8 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'sku',
-        'product',
-        'content',
-        'photo',
-        'price',
+        'quiz_id',
+        'question'
     ];
 
     /**
@@ -30,4 +27,8 @@ class Product extends Model
     protected $hidden = [
 
     ];
+
+    public function getChoices($question_id) {
+        return Choice::where('question_id', '=', $question_id)->first();
+    }
 }

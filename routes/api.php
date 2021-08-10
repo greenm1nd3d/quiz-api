@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ChoiceController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -25,10 +27,21 @@ Route::group(['prefix' => '/v1'], function () {
     Route::get('/', [UserController::class, 'index']);
     Route::post('/register', [UserController::class, 'createAccount']);
 
-    Route::get('/products', [ProductController::class, 'list']);
-    Route::post('/product', [ProductController::class, 'create']);
-    Route::post('/product/{id}/update', [ProductController::class, 'update']);
-    Route::get('/product/{id}/delete', [ProductController::class, 'delete']);
+    Route::get('/quizzes', [QuizController::class, 'list']);
+    Route::post('/quiz', [QuizController::class, 'create']);
+    Route::post('/quiz/submit', [QuizController::class, 'submit']);
+    Route::post('/quiz/{id}/update', [QuizController::class, 'update']);
+    Route::get('/quiz/{id}/delete', [QuizController::class, 'delete']);
+
+    Route::get('/quiz/{id}', [QuestionController::class, 'list']);
+    Route::get('/question/{id}', [QuestionController::class, 'show']);
+    Route::post('/question', [QuestionController::class, 'create']);
+    Route::post('/question/{id}/update', [QuestionController::class, 'update']);
+    Route::get('/question/{id}/delete', [QuestionController::class, 'delete']);
+
+    Route::get('/choices', [ChoiceController::class, 'list']);
+    Route::post('/choices', [ChoiceController::class, 'create']);
+    Route::post('/choices/{id}/update', [ChoiceController::class, 'update']);
 
     Route::post('/login', [\Laravel\Passport\Http\Controllers\AccessTokenController::class, 'issueToken']);
 });

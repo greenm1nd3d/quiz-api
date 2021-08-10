@@ -22,12 +22,6 @@ class User extends Authenticatable
         'password',
         'first_name',
         'last_name',
-        'street',
-        'city',
-        'state',
-        'country',
-        'postcode',
-        'user_type',
         'status'
     ];
 

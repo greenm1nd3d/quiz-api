@@ -1,0 +1,16 @@
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.textfield {
+    padding: 8px 15px;
+    width: 500px;
+}
+
+.button {
+    padding: 7px 12px;
+}
+
+.align-right {
+    text-align: right;
+}
